@@ -56,7 +56,7 @@ class NewsRepository {
   Future<ArticleResponse> getHotNews() async {
     var params = {
       "apiKey": apiKey,
-      "q" : "bitcoin",
+      "q" : "business",
       "sortBy": "popularity"};
     try {
       Response response = await _dio.get(everythingUrl, queryParameters: params);
