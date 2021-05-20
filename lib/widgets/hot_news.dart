@@ -4,6 +4,7 @@ import 'package:news_shell_flutter/elements/error_element.dart';
 import 'package:news_shell_flutter/elements/loader.dart';
 import 'package:news_shell_flutter/model/article.dart';
 import 'package:news_shell_flutter/model/article_response.dart';
+import 'package:news_shell_flutter/screens/news_detail.dart';
 import 'package:news_shell_flutter/style/theme.dart' as Style;
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -68,7 +69,14 @@ class _HotNewsWidgetState extends State<HotNewsWidget> {
             return Padding(
               padding: const EdgeInsets.only(left: 5.0, right: 5.0, top: 10.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailNews(
+                                article: articles[index],
+                              )));
+                },
                 child: Container(
                   width: 220.0,
                   decoration: BoxDecoration(

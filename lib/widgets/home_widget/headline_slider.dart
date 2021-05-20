@@ -5,6 +5,7 @@ import 'package:news_shell_flutter/elements/error_element.dart';
 import 'package:news_shell_flutter/elements/loader.dart';
 import 'package:news_shell_flutter/model/article.dart';
 import 'package:news_shell_flutter/model/article_response.dart';
+import 'package:news_shell_flutter/screens/news_detail.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 class HeadlineSliderWidget extends StatefulWidget {
@@ -56,7 +57,16 @@ class _HeadlineSliderWidgetState extends State<HeadlineSliderWidget> {
     return articles
         .map(
           (article) => GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailNews(
+                    article: article,
+                  ),
+                ),
+              );
+            },
             child: Container(
               padding: EdgeInsets.only(
                   left: 5.0, right: 5.0, top: 10.0, bottom: 10.0),

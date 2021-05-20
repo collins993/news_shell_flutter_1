@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_shell_flutter/bloc/get_sources_bloc.dart';
 import 'package:news_shell_flutter/model/source.dart';
 import 'package:news_shell_flutter/model/source_response.dart';
+import 'package:news_shell_flutter/screens/source_detail.dart';
 import 'package:news_shell_flutter/style/theme.dart' as Style;
 
 class TopChannelsWidget extends StatefulWidget {
@@ -66,7 +67,14 @@ class _TopChannelsWidgetState extends State<TopChannelsWidget> {
               padding: EdgeInsets.only(top: 10.0, right: 0.0),
               width: 80.0,
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SourceDetail(
+                                source: sources[index],
+                              )));
+                },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
